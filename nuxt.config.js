@@ -18,7 +18,6 @@ export default defineNuxtConfig({
     configPath: 'tailwind.config'
   },
   content: {
-    // https://content.nuxtjs.org/api/configuration
   },
   build: {
     chunkSizeWarningLimit: 10000

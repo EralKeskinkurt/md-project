@@ -21,6 +21,7 @@ export default () => ({
 
                    }
                }).then(res => {
+                   useRouter().push('/')
                    toastStore().setToast('Success', res.message)
                }).catch(e => {
                    toastStore().setToast('Error', e.error)
@@ -52,7 +53,7 @@ export default () => ({
                             }
                         }
                     }).then(res => {
-                        useRouter().push('/profile')
+                        useRouter().push('/')
                         toastStore().setToast('Success', res.message)
                     }).catch(e => {
                         toastStore().setToast('Error', e.error)

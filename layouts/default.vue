@@ -1,6 +1,6 @@
 <template>
-<div class="w-full h-screen flex justify-center items-center bg-zinc-200">
-  <div class="w-[1000px] flex flex-col items-center justify-start bg-green-300 h-screen overflow-hidden relative">
+<div class="w-full h-screen flex justify-center items-center bg-black">
+  <div class="w-[70%] max-xl:w-[70%] max-lg:w-[100%] max-md:w-[100%] max-sm:w-[100%] h-full flex gap-6 flex-col items-center justify-end bg-black overflow-hidden relative">
     <Navbar />
     <Toast />
     <slot />

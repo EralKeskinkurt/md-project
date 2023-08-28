@@ -5,9 +5,9 @@ export default defineEventHandler(async(event) => {
     const body = await readBody(event)
     try {
         const db = getFirestore()
-        await db.collection('user').doc(body.userUid).set({
-            displayName: body.displayName,
-            email: body.email,
+        await db.collection('user').doc(body?.userUid).set({
+            displayName: body?.displayName,
+            email: body?.email,
             photoUrl: null
         })
         return {status:200, message: 'Successful'}

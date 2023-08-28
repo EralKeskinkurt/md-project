@@ -1,17 +1,17 @@
 <template>
-<div class="h-[91%] w-full bg-transparent flex justify-center py-5 px-44 items-center">
+<div class="h-[85%] w-full bg-white/10 flex justify-center py-5 px-44 items-center">
   <form @submit.prevent class="w-full h-full flex flex-col items-center justify-center gap-6">
     <div class="flex flex-col items-start justify-center gap-2">
-      <label class="px-2" for="">E-mail</label>
-      <input class="w-[250px] outline-none  focus:border-b-green-700/70 border-white border-[2px] rounded-md py-1 px-3" v-model="email" type="text">
+      <label class="px-2 text-white" for="">E-mail</label>
+      <input class="w-[250px] outline-none bg-zinc-200/90 text-black font-bold rounded-sm py-1 px-3" v-model="email" type="text">
     </div>
     <div class="flex flex-col items-start justify-center gap-2">
-      <label  class="px-2" for="">Password</label>
-      <input class="w-[250px] outline-none  focus:border-b-green-700/70 border-white border-[2px] rounded-md py-1 px-3" v-model="password" type="password">
+      <label  class="px-2 text-white" for="">Password</label>
+      <input class="w-[250px] outline-none bg-zinc-200/90 text-black font-bold rounded-sm py-1 px-3" v-model="password" type="password">
     </div>
     <div class="flex items-start justify-start text-center overflow-hidden rounded-lg">
-      <button @click="login" class="w-[125px] bg-green-500 text-black font-bold px-2 py-2 hover:bg-green-600/60">Login</button>
-      <nuxt-link class="w-[125px] bg-emerald-800 hover:bg-emerald-800/60 text-white font-bold px-2 py-2" to="/register">Register</nuxt-link>
+      <button @click="login" class="w-[125px] bg-black/40 text-white font-bold px-2 py-2 hover:bg-black/60">Login</button>
+      <nuxt-link class="w-[125px] bg-white/40 hover:bg-white/60 text-black font-bold px-2 py-2" to="/register">Register</nuxt-link>
     </div>
   </form>
 </div>

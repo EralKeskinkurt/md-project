@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-export const userBlogStore = defineStore('user-blog', {
+export const blogStore = defineStore('blog', {
     state: () => ({
         blogs: null,
     }),

@@ -1,18 +1,21 @@
 <template>
-<div class="w-[50%] flex flex-col gap-2 py-8 justify-start items-center h-full border-r-[1px] border-r-black/50">
+<div class="w-[50%] bg-white/10 flex flex-col gap-2 py-8 justify-start items-center h-full border-r-[1px] border-r-black/50">
   <div class="relative">
     <div>
-      <img v-if="image || img_url" :src="img_url ? img_url : image" alt="profile image" class="w-28 object-cover rounded-full border-[2px] border-green-700 h-28">
-      <Icon v-else class="text-[100px] text-gray-500" name="material-symbols:account-circle-full"/>
+      <img v-if="image || img_url" :src="img_url ? img_url : image" alt="profile image" class="w-28 object-cover rounded-full border-[2px] border-white/50 h-28">
+      <Icon v-else class="text-[100px] text-white" name="material-symbols:account-circle-full"/>
     </div>
     <label for="image">
       <input type="file" id="image" class="hidden" @change="uploadImage">
       <Icon  name="material-symbols:add-photo-alternate-outline"  class="absolute -bottom-2 right-4 rounded-full  text-white bg-gray-600 cursor-pointer hover:bg-gray-600/70 p-1 text-3xl"/>
     </label>
   </div>
-    <h1 class="text-black text-[20px] font-bold mt-5">{{userCollection().getCurrentUser?.displayName}}</h1>
-    <h1 class="text-black/70 text-[14px] font-light">{{userCollection().getCurrentUser?.email}}</h1>
-  <button v-if="img_url" @click="updateUser" class="w-auto h-auto p-2 bg-green-600 mt-5 font-bold">Update Profile</button>
+    <h1 class="text-white text-[20px] font-bold mt-5">{{userCollection().getCurrentUser?.displayName}}</h1>
+    <h1 class="text-white/70 text-[14px] font-light">{{userCollection().getCurrentUser?.email}}</h1>
+  <div class="flex items-center justify-center gap-4">
+    <button v-if="img_url" @click="updateUser" class="w-auto h-auto p-2 bg-green-600 rounded-sm mt-5 font-bold">Update Profile</button>
+    <button v-if="img_url" @click="img_url = null" class="w-auto h-auto p-2 bg-red-600 rounded-sm mt-5 font-bold">Cancel</button>
+  </div>
 </div>
 </template>
 <script setup>
@@ -46,3 +49,6 @@ const updateUser = async () => {
 }
 
 </script>
+<style>
+
+</style>

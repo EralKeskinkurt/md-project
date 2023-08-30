@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   generate: { fallback: true },
   nitro: {
     prerender: {
-      routes: ['/404.vue']
+      routes: ['/404']
     }
   }
 })

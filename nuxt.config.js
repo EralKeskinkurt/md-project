@@ -29,5 +29,10 @@ export default defineNuxtConfig({
     global: true,
     dirs: ['~/components']
   },
-  generate: { fallback: true }
+  generate: { fallback: true },
+  nitro: {
+    prerender: {
+      routes: ['/404.vue']
+    }
+  }
 })

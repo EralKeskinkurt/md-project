@@ -29,4 +29,5 @@ export default defineNuxtConfig({
     global: true,
     dirs: ['~/components']
   },
+  generate: { fallback: true }
 })

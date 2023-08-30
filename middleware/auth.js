@@ -4,7 +4,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
                 const auth = getAuth();
             if (process.server){
                 const cookie =  useCookie('session')
-                const data = await $fetch('http://localhost:3000/api/checkauthstatus',{
+                const data = await $fetch('https://md-project.vercel.app//api/checkauthstatus',{
                     method: 'POST',
                     body: JSON.stringify({sessionCookie: cookie.value}),
                 })

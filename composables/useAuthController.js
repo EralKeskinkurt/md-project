@@ -21,9 +21,9 @@ export default () => ({
                 $fetch('api/deleteusercookie', {
                     method: 'POST',
                 }).then(response => {
+                    useRouter().push('/login')
                     toastStore().setToast("Success", 'Successfully Created User')
                     userCollection().setCurrentUser(null);
-                    useRouter().push('/login')
                 }).catch(err => {
                     toastStore().setToast("Error", "Something Has Gone Wrong")
                 })

@@ -15,6 +15,8 @@ export default defineEventHandler(async(event) => {
              mdBlogs.push({
                  mdTitle: mdData.mdTitle,
                  mdViews: mdData.mdViews,
+                 mdText: mdData.mdText,
+                 mdCreatedTime: mdData.mdCreatedTime,
                  userRef: userData.data()
              })
          }

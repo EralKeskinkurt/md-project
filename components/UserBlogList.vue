@@ -22,7 +22,7 @@
           <button @click="deleteBlog(blog.mdTitle)" class="font-medium text-xl text-red-500 hover:underline"><Icon name="material-symbols:delete" /></button>
         </td>
       </tr>
-      <tr v-else v-for="(item, index) in 10" class="bg-white/5">
+      <tr v-if="!blogs" v-for="(item, index) in 10" class="bg-white/5">
         <th scope="row" class="px-6 py-4 font-medium text-white whitespace-nowrap ">
           <button class="bg-white/50 shadow shadow-white/40  animate-pulse">&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160</button>
         </th>
@@ -44,9 +44,6 @@ import {toastStore} from "~/store/toastStore";
 import useFireStorage from "~/composables/useFireStorage";
 const blogs = ref(null);
 
-onMounted(async () => {
-  await useFireStorage().getMdFiles();
-});
 
 watchEffect(() => {
   blogs.value = userBlogStore().getBlogs?.data;

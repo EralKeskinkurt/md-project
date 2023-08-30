@@ -21,9 +21,11 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
+    "@vavt/md-editor-extension": "^3.0.0",
     "firebase": "^10.0.0",
     "firebase-admin": "^11.10.1",
     "highlight.js": "^11.8.0",
+    "md-editor-v3": "2.2.1",
     "pinia": "^2.1.4"
   }
 }

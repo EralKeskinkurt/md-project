@@ -93,7 +93,7 @@ export default () => ({
 
     updateUserProfile: async function (data) {
         const storage = getStorage()
-        const imageRef = ref(storage,'images/' + data.file.filename)
+        const imageRef = ref(storage,'images/' + data.file.name)
         await uploadBytes(imageRef, data.file).then(imgRes => {
             getDownloadURL(ref(storage, `images/${imgRes.metadata.name}`))
                 .then(imgUrl => {

@@ -9,7 +9,7 @@ export default defineEventHandler(async(event) => {
         const verifyCookie = await getAuth().verifySessionCookie(cookie.toString());
         const mdBlogRef = db.collection('mdBlog')
         const snapshot = await mdBlogRef.where("userRef", "==", db.doc('users/' + verifyCookie.uid)).get()
-        const blogs = [];
+        let blogs = [];
         snapshot.forEach((doc) => {
             blogs.push(doc.data())
         });

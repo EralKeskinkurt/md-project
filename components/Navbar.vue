@@ -3,7 +3,6 @@
   <nuxt-link v-if="userCollection().getCurrentUser" class="font-bold h-full flex items-center" active-class="active" to="/md-create">Md Create</nuxt-link>
   <nuxt-link v-if="userCollection().getCurrentUser" class="font-bold h-full flex items-center" active-class="active" to="/blogs" >Blogs</nuxt-link>
   <nuxt-link v-if="userCollection().getCurrentUser" class="font-bold h-full flex items-center" active-class="active" to="/" >Profile</nuxt-link>
-  <nuxt-link class="font-bold h-full flex items-center" active-class="active" to="/helpers" >Helpers</nuxt-link>
   <nuxt-link v-if="!userCollection().getCurrentUser" class="font-bold h-full flex items-center" active-class="active" to="/login" >Login</nuxt-link>
   <span v-if="userCollection().getCurrentUser" @click="logOut" class="font-bold cursor-pointer h-full flex items-center" >Logout</span>
 </nav>

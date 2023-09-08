@@ -2,7 +2,6 @@ import {useCookie} from "#app";
 import {getAuth} from "firebase/auth";
 export default defineNuxtRouteMiddleware(async (to) => {
                 const auth = getAuth();
-            if (process.server){
                 const cookie =  useCookie('session')
                 const data = await $fetch('https://md-project.vercel.app/api/checkAuthStatus',{
                     method: 'POST',
@@ -14,7 +13,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
                 if (data?.statusCode === 200 && to.path.startsWith('/login')){
                     return  navigateTo('/')
                 }
-            }
+          
 
 })
 

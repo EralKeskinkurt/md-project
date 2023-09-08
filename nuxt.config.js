@@ -22,9 +22,13 @@ export default defineNuxtConfig({
   build: {
     chunkSizeWarningLimit: 10000
   },
+  ssr: true,
   components: {
     global: true,
     dirs: ['~/components']
   },
-  generate: { fallback: true }
+  generate: { fallback: true },
+  nitro: {
+    preset: 'node-server'
+  }
 })

@@ -18,6 +18,8 @@
 </template>
 
 <script setup>
+import {toastStore} from "~/store/toastStore";
+
 definePageMeta({
   middleware: ['auth']
 })
@@ -26,9 +28,13 @@ import useAuthController from "~/composables/useAuthController";
 const email = ref(null)
 const password = ref(null);
 const login = async () => {
-  await useAuthController().signInUser(email.value, password.value);
-  email.value = null
-  password.value = null
+  if (email.value && password.value){
+    await useAuthController().signInUser(email.value, password.value);
+    email.value = null
+    password.value = null
+  }else{
+    toastStore().setToast('Error', "Email or password not be empty")
+  }
 }
 </script>
 

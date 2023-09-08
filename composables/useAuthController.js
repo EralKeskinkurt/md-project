@@ -17,7 +17,7 @@ export default () => ({
                         email: user.user.email
                     }
                 }).then(res => {
-                }).catch(err => console.log(err))
+                }).catch(err => "")
                 $fetch('api/deleteusercookie', {
                     method: 'POST',
                 }).then(response => {
@@ -29,7 +29,7 @@ export default () => ({
                 })
             })
             .catch((error) => {
-                toastStore().setToast("Error", error.message)
+                toastStore().setToast("Error", error.message.slice(10, ))
             });
         return credentials
     },
@@ -61,7 +61,7 @@ export default () => ({
                     .catch((error) => {
                         const errorCode = error.code;
                         const errorMessage = error.message;
-                        toastStore().setToast("Error", errorMessage)
+                        toastStore().setToast("Error", "Incorrect email or password")
                     });
             })
 

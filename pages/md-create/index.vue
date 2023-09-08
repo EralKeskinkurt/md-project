@@ -15,6 +15,7 @@ import 'md-editor-v3/lib/style.css';
 import {Icon} from "#components";
 import useFireStorage from "~/composables/useFireStorage";
 import {useRouter} from "#app";
+import {toastStore} from "~/store/toastStore";
 definePageMeta({
   middleware: ['auth'],
   layout:'form-layout'
@@ -23,10 +24,16 @@ const BackIcon = h(Icon, { name: 'mdi:backspace'})
 const mdContentText = ref("## Default Title");
 const mdTitle = ref(null);
 const createClick = async () => {
- if (mdContentText.value.length > 10 && mdTitle.value){
-   await useFireStorage().createMd({title: mdTitle.value, text: mdContentText.value})
-   mdTitle.value = null;
-   mdContentText.value = "## Default Title";
+ if (mdTitle.value){
+   if (mdContentText.value.length > 15){
+     await useFireStorage().createMd({title: mdTitle.value, text: mdContentText.value})
+     mdTitle.value = null;
+     mdContentText.value = "## Default Title";
+   }else {
+     toastStore().setToast('Error', "Text length must be at least 15 characters")
+   }
+ }else{
+   toastStore().setToast('Error', "Title not be empty and")
  }
 }
 </script>

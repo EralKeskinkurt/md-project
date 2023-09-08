@@ -23,7 +23,7 @@ import useFireStorage from "~/composables/useFireStorage";
 import {userCollection} from "@/store/userCollection";
 const coverFile = ref(null)
 const img_url = ref(null);
-const image = ref(userCollection().getCurrentUser.photoUrl)
+const image = ref(null)
 const uploadImage = async (event) => {
   img_url.value = await null;
   let reader = new FileReader();
@@ -47,7 +47,9 @@ const updateUser = async () => {
     img_url.value = null
   })
 }
-
+watchEffect(() => {
+  image.value = userCollection().getCurrentUser.photoUrl
+})
 </script>
 <style>
 

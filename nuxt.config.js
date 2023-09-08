@@ -8,10 +8,10 @@ export default defineNuxtConfig({
     'nuxt-icon'
   ],
   runtimeConfig: {
-    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,// can be overridden by NUXT_API_SECRET environment variable,
-    public: {
-      FIREBASE_API_KEY: process.env.FIREBASE_API_KEY
-    }
+      public:{
+        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY, // can be overridden by NUXT_API_SECRET environment variable,
+        APP_ID: process.env.APP_ID
+      }
   },
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',

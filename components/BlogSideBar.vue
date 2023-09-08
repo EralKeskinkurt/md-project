@@ -5,7 +5,7 @@
     <div class="flex flex-wrap gap-10 px-2 items-center w-full justify-between mt-5">
      <div>
        <h1 class="text-[0.9rem] flex text-white items-center gap-1"> <ByAbout class="text-[1.1rem]" /> CREATED BY :</h1>
-       <h3 class="text-[0.8rem] text-white/70">{{user?.displayName}}</h3>
+       <h3 class="text-[0.8rem] text-white/70">{{blog?.userRef?.displayName}}</h3>
      </div>
      <div>
        <h1 class="text-[0.9rem] flex text-white items-center gap-1 text-end"> CREATED TİME <Calender class="text-[1.1rem]" /> :</h1>
@@ -35,7 +35,12 @@ const BackIcon = h(Icon, { name: 'mdi:backspace'})
 const blog = ref(null)
 const user = ref(userCollection().getCurrentUser)
 const slug = useRoute().params.slug;
-watchEffect(() => {
-  blog.value =  blogStore().getBlogs.data.find(md => md.mdTitle === slug)
-})
+onMounted(async () => {
+  await $fetch('/api/getAllMdBlog', {
+    method: 'get'
+  }).then(mdData => {
+    blogStore().setBlogs(mdData)
+    blog.value = blogStore().getBlogs?.data.find(b=> b.mdTitle === slug);
+  })
+});
 </script>

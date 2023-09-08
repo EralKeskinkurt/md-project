@@ -1,25 +1,26 @@
 import {getApps, initializeApp, cert} from "firebase-admin/app";
+    const config = useRuntimeConfig()
 
-const firebaseServerConfigs ={
-    "type": "service_account",
-    "project_id": "nuxt-md-project",
-    "private_key_id": "e35f97fcbb97fa2d066ebbc594641c3638c87979",
-    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDbM5dgez+jsvqW\nC3G9C2OXAWDv/uZIlOXQc0Z/9ihNNvbio1UJKakTuqwEjD+xfOeVFZVCGqM7GqzX\nm0NRxFYYYliA5DaiuImUETxVjb9evoGBob7YP05O6btGSJLI5eQtAggdFjm/jGVR\n56Up7KmISCijzXEq+n5rou+oG0J5kwFAVsIk1wVHHGB1vYM75Fm1aVIoT1y6lgj2\nlMf9JfHek7LNlGzlZIqXosG4Qx8bOKmPKfmmP1rAPmQQUYy3fecxl9Gln3YO5SRy\n/BPvJAb0TkIOKFqpMjBU+M1im8OvVArZQ+1mXVD+fy22O/YLsl87avFnk4R9piR5\nFQRZKx2rAgMBAAECggEAIeWX/pkAjdlzC7noVEILHAJgEazawpWX9kSlPct8jvg1\ndHWqhDi3hzACQs/HV7SHgVPtmWPSIyUsXkkJv367i5jFs+TWmBIuYEHMETTSx51x\nHHE9OGaNvwFA7wzw+fUm9FjQlWLm+jqFPoWyUknhK4xxEGeIHQvQeeef5OCWRoNO\nU6Q+Iv8VzXPP2bddnIMjxtTLTFIWFIciHeudI54pdTmgZrj6XHfslVDB9VqqNhGH\nvdk66e5V/tNn64mBF4iNmoTxNj70oIgKfzWWunal9Wo65iX5bMh/sqpFBvTCEroM\nSMCLCkLI80jlu6APURAgLjFgj7DcCrIsR+a1ipO93QKBgQDwq189ev1UFu44CTHZ\nOMtikiGWt5rco6wL+OCNR1K6ZyXMMaj6RCDWGkeawSIasCvGdIn6/kYD81uR7IlL\nyNgjymEaURXGEfAyHbDhBYPzOYQiiwVWu430O4WUaLK5lMaZc788Bt4V4bu+Ac27\nVUUzGauSIFjEESXTy132Ny5enwKBgQDpKiO3dK8/U6FTCY7M/O18NaSCg20EL2LE\nN560ww3H2CYOtqkmbwo2HoU90rNZJdTGuigkEACDzCF1xvCqsih+h37D4TuzG6tG\nPcyvOsbnbyfUqBVFnG6ILdx269iEvhwMpq53R4eJRAwFbzKNsH3jdnGW5kuYKFf5\noT/XRdzBdQKBgEaR6bZsZvYOV0HlKFHKvpCjyueX5PgHoj5MdwPWQyLXdhTfBu6D\npaFCSXbOZQKwX9WsfH01rDAiXtp2IngvZ3lvMXP3DMxsnCMF48THyj46wk0iuKkL\nC//uqCexX57dSjLa5ttiJCMEcvmvK7Vfto/aWh3aEE1FvfLRsjatTZJ/AoGBAI5d\nE2e9UA9bccHwsQdKW3qeii7CLjsC78wcpcN64RwnRr1vHAKCg/qdUf94edcxuSQJ\nn969AoN2jOuLp4ChvQXclzLkf/4RI9eEfkhzm+TNQsWeRza0l+yAC/90a0RJi3jS\nAO6FdyUBrlFXHsfSflr3A83+GSPzZhveL8uyNWLNAoGBAO5aU+YwN+BDKS9h3mW3\ntZYnWvZ6W62XtUy4VQ/0zAD+skR77nhNZGzOnQFJmcz1UaQFuDsWczbnmaZqnIfH\nZ5OejwISM/mbPrSDUPM5hMKVTAULsMyrVwwF6bwS09RaGrLtoYL3sfmybTJYad82\nPvVyCpg9j5mcVwpr28XL4oJ0\n-----END PRIVATE KEY-----\n",
-    "client_email": "firebase-adminsdk-o6z75@nuxt-md-project.iam.gserviceaccount.com",
-    "client_id": "111483122775157483590",
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-o6z75%40nuxt-md-project.iam.gserviceaccount.com",
-    "universe_domain": "googleapis.com"
-}
+    const firebaseServerConfigs = {
+        "type": "service_account",
+        "project_id": "nuxt-md-project",
+        "private_key_id": "1163cdef2e8cc30a7278c8aa82acc0793a27b42d",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCm6hUN5krWjZzi\nTVrCYNx0ztTd5bzbE3O/8vCl2CC8OVLm/VcUx/KcFhr+YhnVwUWXKX83pVswGrPf\nwEYW2Y18Ur7lDkfe6m/WSn2MelOWjNXsjkUQogHhzV8hrH3m1TBbLQc999sfL7Dx\ncE1ZV80R5D+Wmbl6H6sHQ/ghotKug4/0rlGLWMNTaI3zZzZMqCTTubNzoJNram3k\nPV65TLPm8DekXoSALGFyy35bxECWfkuyMoXssP+xo/NHMKMm3r4j58E1sPfUQAu8\n289xReD2wjN4j9QIbXr0mlqAGNLWA/SjOtPbUG5C/rehlX6VpSQshVN593daW5qU\nbx2NZ6tVAgMBAAECggEADSPhzcWoH+/naTa8bbpWYKkPv6WgZ9bGMVbyHvw+x31J\nINTSOtlAKOLh884hSTSn7S3fzVpVLW+iDXwDiIpOmyT10O5+NfcFdZHzrvrKWHsf\nNDpBsaeEt76v6I9ocfhX5Yr2m6hG4H5OqGiLjlGyhoq41CWnS7fxLOdAQir2pF+n\ntxNtbHkaZdKa80EECm0LVM/xJPGKI45MBROCCeNo1twIK+j4qqDblyEcO1bWHHIa\n6qrqdY5xEwdE0iR2pQUfrhKyImLXeGSyWfhPrwmgaTyJOesD1FtYXasHQMYIE+iO\nMqKqeifCMJnIOwvbZ1yfACG13IWJNs6c2UzuB7ir2QKBgQDkHigTOK0/JgOP15UA\n6vSsO8p53YqB+ClLVA5l70i+vtrNOJfJn3PkP46gwTsB+A/kIxCw24B5sm8ZMlRP\nflM3+XfU3E4VsG1P5+l7WpY8ICDuOKH+nhyxz//hHPTPjHW+t8mY1Q+ZN6fRofer\nzCk8f3C7aTQyTGI4ULRzZG99JwKBgQC7UNxbXxTlhD5qv269wwhMVzORmWStQ90G\nehwpHV6O/qAQz/MX+4nWJpmNXUDlAoSqVzySDu20iFX4vfbIwFcodYqbnYObFzYy\n8zbaSkpy6YEYNNXlltCiUulKD41LeBmAfL/e7JrsP4G6U29TI9rsb2sporR/F3GC\n831vaYFZIwKBgEYLCG0WewOnzXIuVL8qZaQ426vdnXjY1P0fOyiLd3+yJIbc+KZd\nAn20EjxD+LVbEK4RIj/btjAn3LsU3BRoim7md6fxWTyJppbhc6x/nR+rEdFzrDH9\nJHxojH33oSfVThYYYps92ININoxEukKS9ppv2xKAdBl5oLL//Nhtn1oDAoGAOcib\nAZDWSGtAOfvt9JoKoEoyPVMdjJmnwEzBDSnjNqdzx1vu+NH+1lI4AjTnRP4+4LFi\nnQf/6jY4lzA6xfkXqgKAjLrNk3VYoeUHYdWTG9nOmiIKbfXVTI3ZK6CajNJyw4E4\nS1OgAwsgQNNmPzaLXW6Nl1164s3flW75nfnlDhMCgYAKfb4hSpMWGSwIrIK+YH7o\nmmLUE1KFpT6hnSOOeZAzDbPa6Nvt8VMsmdd/P0y/ip1tMrLfuyS18vgpVs15Ve53\n/V3tNLEjdHooEGuGCmSOKDq/5ejpjHR2cHyO/M7y8jvJqwPT8VpXCdBf7V2SABrZ\nwENz79F1ha9tfVQUSj/q3g==\n-----END PRIVATE KEY-----\n",
+        "client_email": "firebase-adminsdk-o6z75@nuxt-md-project.iam.gserviceaccount.com",
+        "client_id": "111483122775157483590",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-o6z75%40nuxt-md-project.iam.gserviceaccount.com",
+        "universe_domain": "googleapis.com"
+    }
+
     export default function useFirebaseServer(){
         let app;
         if(getApps().length === 0)
         app = initializeApp({
                 credential: cert(firebaseServerConfigs)
         })
-
         return {
             app
         }

@@ -22,17 +22,9 @@ export default defineNuxtConfig({
   build: {
     chunkSizeWarningLimit: 10000
   },
-  router: {
-    middleware: ["auth"]
-  },
   components: {
     global: true,
     dirs: ['~/components']
   },
-  generate: { fallback: true },
-  nitro: {
-    prerender: {
-      routes: ['/404']
-    }
-  }
+  generate: { fallback: true }
 })

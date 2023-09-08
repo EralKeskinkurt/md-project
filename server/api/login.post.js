@@ -11,7 +11,7 @@ export default defineEventHandler(async(event) => {
         const user = {};
         const sessionCookie = await getAuth().createSessionCookie(idToken,{expiresIn})
         const verifyCookie = await getAuth().verifySessionCookie(sessionCookie);
-        const options =  {maxAge: expiresIn, httpOnly: true, secure: false, path: '/'}
+        const options =  {maxAge: expiresIn, httpOnly: false, secure: false, path: '/'}
         setCookie(event, 'session', sessionCookie, options);
         const res = await db.collection('user').doc(verifyCookie.uid).get()
         return {statusCode: 200, body:res.data()}

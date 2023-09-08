@@ -22,7 +22,6 @@ export default defineNuxtConfig({
   build: {
     chunkSizeWarningLimit: 10000
   },
-  ssr: false,
   components: {
     global: true,
     dirs: ['~/components']

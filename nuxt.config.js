@@ -27,8 +27,5 @@ export default defineNuxtConfig({
     global: true,
     dirs: ['~/components']
   },
-  generate: { fallback: true },
-  nitro: {
-    preset: 'node-server'
-  }
+  generate: { fallback: true }
 })

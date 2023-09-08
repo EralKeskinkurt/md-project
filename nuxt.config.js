@@ -13,6 +13,7 @@ export default defineNuxtConfig({
         APP_ID: process.env.APP_ID
       }
   },
+  ssr: true,
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config'

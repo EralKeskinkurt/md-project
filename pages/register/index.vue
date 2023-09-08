@@ -23,10 +23,6 @@
 
 <script setup>
 import {toastStore} from "~/store/toastStore";
-
-definePageMeta({
-  middleware: ['auth']
-})
 import {useRouter} from "#app";
 const router = useRouter();
 import useAuthController from "/composables/useAuthController"

@@ -14,7 +14,6 @@ import BlogSideBar from "~/components/BlogSideBar.vue";
 import {useRoute} from "#app"
 import {blogStore} from "~/store/blogStore";
 definePageMeta({
-  middleware: ["auth"],
   layout:'form-layout'
 });
 const viewsIp = ref(null)

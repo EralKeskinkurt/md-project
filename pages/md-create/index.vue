@@ -17,7 +17,6 @@ import useFireStorage from "~/composables/useFireStorage";
 import {useRouter} from "#app";
 import {toastStore} from "~/store/toastStore";
 definePageMeta({
-  middleware: ['auth'],
   layout:'form-layout'
 })
 const BackIcon = h(Icon, { name: 'mdi:backspace'})

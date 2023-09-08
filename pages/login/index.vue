@@ -19,10 +19,6 @@
 
 <script setup>
 import {toastStore} from "~/store/toastStore";
-
-definePageMeta({
-  middleware: ['auth']
-})
 import useAuthController from "~/composables/useAuthController";
 
 const email = ref(null)

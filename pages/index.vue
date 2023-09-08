@@ -9,11 +9,7 @@
 import ProfileCard from "~/components/ProfileCard.vue";
 import UserBlogList from "~/components/UserBlogList.vue";
 import useFireStorage from "~/composables/useFireStorage";
-
 onMounted(async () => {
   await useFireStorage().getMdFiles();
 });
-definePageMeta({
-  middleware: ['auth']
-})
 </script>

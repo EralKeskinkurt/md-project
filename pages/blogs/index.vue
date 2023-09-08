@@ -15,7 +15,4 @@
 import BlogList from "~/components/BlogList";
 import {Icon} from "#components";
 const SearchIcon = h(Icon, { name: 'material-symbols:search'})
-definePageMeta({
-  middleware: ['auth']
-})
 </script>

@@ -12,7 +12,6 @@
 import 'md-editor-v3/lib/style.css';
 import MdEditor from "md-editor-v3";
 definePageMeta({
-  middleware: ['auth'],
   layout: 'form-layout'
 })
 import {userBlogStore} from "~/store/userBlogStore";

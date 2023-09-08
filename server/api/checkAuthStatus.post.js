@@ -5,6 +5,7 @@ import {getFirestore} from "firebase-admin/firestore";
 export default defineEventHandler(async(event) => {
     useFirebaseServer()
     const db = getFirestore()
+
     const {sessionCookie} = await readBody(event)
     try {
         const claim = await getAuth().verifySessionCookie(sessionCookie)
@@ -15,6 +16,7 @@ export default defineEventHandler(async(event) => {
         })
         return {statusCode: 200, claim: claim}
     }catch (e){
+
         return {statusCode: 401, error: 'UNAUTHORİZED-REQUEST'}
     }
 })

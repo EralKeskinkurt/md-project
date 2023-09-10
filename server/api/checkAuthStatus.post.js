@@ -11,7 +11,7 @@ export default defineEventHandler(async(event) => {
         const user = await getAuth().getUser(claim.uid)
         await db.collection('user').doc(user.uid).get().then(res => {
             const data = res.data()
-            userCollection().setCurrentUser({displayName:data.displayName, email: data.email, photoUrl: data.photoUrl});
+            userCollection().setCurrentUser({displayName:data.displayName, email: data.email, photoUrl: data?.photoUrl});
         })
         return {statusCode: 200, claim: claim}
     }catch (e){

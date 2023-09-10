@@ -6,8 +6,9 @@ export default defineEventHandler(async(event) => {
     useFirebaseServer()
     const db = getFirestore()
     const {sessionCookie} = await readBody(event)
+    const cookie = getCookie(event, 'session');
     try {
-        const claim = await getAuth().verifySessionCookie(sessionCookie)
+        const claim = await getAuth().verifySessionCookie(cookie)
         const user = await getAuth().getUser(claim.uid)
         await db.collection('user').doc(user.uid).get().then(res => {
             const data = res.data()

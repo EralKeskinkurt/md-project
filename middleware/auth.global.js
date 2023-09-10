@@ -9,7 +9,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
                     body: JSON.stringify({sessionCookie: cookie.value}),
                 })
                 if (data?.statusCode === 401 && to.path !== "/login" && to.path !== "/register"){
-                    cookie.value = null
                     return  navigateTo('/login')
                 }
                 if (data?.statusCode === 200 && to.path === "/login" && to.path === "/register"){

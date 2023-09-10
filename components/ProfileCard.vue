@@ -48,7 +48,7 @@ const updateUser = async () => {
   })
 }
 watchEffect(() => {
-  image.value = userCollection().getCurrentUser.photoUrl
+  image.value = userCollection().getCurrentUser?.photoUrl
 })
 </script>
 <style>
